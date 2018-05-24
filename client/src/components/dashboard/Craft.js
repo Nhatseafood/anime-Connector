@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Moment from "react-moment";
 import { deleteCraft } from "../../actions/profileActions";
+import baguetteBox from "baguettebox.js";
 
 //replaces experience
 class Craft extends Component {
@@ -13,8 +14,9 @@ class Craft extends Component {
   render() {
     const craft = this.props.craft.map(craf => (
       <tr key={craf._id}>
-        <td>{craf.company}</td>
-        <td>{craf.title}</td>
+        <td>{craf.skills}</td>
+        <td>{craf.materialsUsed}</td>
+
         <td>
           <Moment format="YYYY/MM/DD">{craf.from}</Moment> -
           {craf.to === null ? (
@@ -39,8 +41,8 @@ class Craft extends Component {
         <table className="table">
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Title</th>
+              <th>Skills</th>
+              <th>Materials Used</th>
               <th>Years</th>
               <th />
             </tr>

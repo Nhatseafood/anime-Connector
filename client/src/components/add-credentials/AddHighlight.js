@@ -5,26 +5,39 @@ import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addHighlight } from "../../actions/profileActions";
+import axios from "axios";
 
 class AddHighlight extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      school: "",
-      degree: "",
-      fieldofstudy: "",
+      caption: "",
+      title: "",
+      location: "",
       from: "",
       to: "",
       current: false,
       description: "",
       errors: {},
-      disabled: false
+      disabled: false,
+      selectedImage: null
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.onCheck = this.onCheck.bind(this);
   }
+
+  fileSelectedHandler = event => {
+    this.setState({
+      selectedFile: event.target.files[0]
+    });
+  };
+
+  fileUploadHandler = () => {
+    const fd = new FormData();
+    fd.append("image", this.state.selectedFild, this.state.selectedFile.name);
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
@@ -36,13 +49,14 @@ class AddHighlight extends Component {
     event.preventDefault();
 
     const highData = {
-      school: this.state.school,
-      degree: this.state.degree,
-      fieldofstudy: this.state.fieldofstudy,
+      caption: this.state.caption,
+      title: this.state.title,
+      location: this.state.location,
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
-      description: this.state.description
+      description: this.state.description,
+      selectedImage: this.state.selectedImage
     };
 
     this.props.addHighlight(highData, this.props.history);
@@ -72,30 +86,23 @@ class AddHighlight extends Component {
               </Link>
               <h1 className="display-4 text-center">Add Highlight</h1>
               <p className="lead text-center">
-                Add any school, bootcamp, etc that you have attended
+                Add any skills, crafts, etc that you have made
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
-                  placeholder="* School"
-                  name="school"
-                  value={this.state.school}
+                  placeholder="* Caption"
+                  name="caption"
+                  value={this.state.caption}
                   onChange={this.onChange}
-                  error={errors.school}
+                  error={errors.caption}
                 />
                 <TextFieldGroup
-                  placeholder="* Degree or Certification"
-                  name="degree"
-                  value={this.state.degree}
+                  placeholder="* Title"
+                  name="title"
+                  value={this.state.title}
                   onChange={this.onChange}
-                  error={errors.degree}
-                />
-                <TextFieldGroup
-                  placeholder="* Field of Study"
-                  name="fieldofstudy"
-                  value={this.state.fieldofstudy}
-                  onChange={this.onChange}
-                  error={errors.fieldofstudy}
+                  error={errors.title}
                 />
                 <h6>From Date</h6>
                 <TextFieldGroup
@@ -125,16 +132,21 @@ class AddHighlight extends Component {
                     id="current"
                   />
                   <label htmlFor="current" className="form-check-label">
-                    Current Job
+                    Current Date
                   </label>
                 </div>
                 <TextAreaFieldGroup
-                  placeholder="Program Description"
+                  placeholder="Cosplay Description"
                   name="description"
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Tell us about the program that you were in"
+                  info="Tell us about more about the costume and cosplay you have made"
+                />
+                <input
+                  type="file"
+                  name="selectedImage"
+                  onChange={this.onChange}
                 />
                 <input
                   type="submit"

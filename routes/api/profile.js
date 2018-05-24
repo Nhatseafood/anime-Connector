@@ -189,8 +189,8 @@ router.post(
 
     Profile.findOne({ user: request.user.id }).then(profile => {
       const newCra = {
-        title: request.body.title,
-        company: request.body.company,
+        skills: request.body.skills,
+        materialsUsed: request.body.materialsUsed,
         location: request.body.location,
         from: request.body.from,
         to: request.body.to,

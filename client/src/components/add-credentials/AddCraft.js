@@ -10,8 +10,8 @@ class AddCraft extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
-      title: "",
+      skills: "",
+      materialsUsed: "",
       location: "",
       from: "",
       to: "",
@@ -36,8 +36,8 @@ class AddCraft extends Component {
     event.preventDefault();
 
     const craData = {
-      company: this.state.company,
-      title: this.state.title,
+      skills: this.state.skills,
+      materialsUsed: this.state.materialsUsed,
       location: this.state.location,
       from: this.state.from,
       to: this.state.to,
@@ -72,23 +72,23 @@ class AddCraft extends Component {
               </Link>
               <h1 className="display-4 text-center">Add Craft Experience</h1>
               <p className="lead text-center">
-                Add any job or position that you have had in the past or current
+                Add any job or crafts that you have had in the past or current
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
-                  placeholder="* Company"
-                  name="company"
-                  value={this.state.company}
+                  placeholder="* Skills"
+                  name="skills"
+                  value={this.state.skills}
                   onChange={this.onChange}
-                  error={errors.company}
+                  error={errors.skills}
                 />
                 <TextFieldGroup
-                  placeholder="* Job Title"
-                  name="title"
-                  value={this.state.title}
+                  placeholder="* Materials Used"
+                  name="materialsUsed"
+                  value={this.state.materialsUsed}
                   onChange={this.onChange}
-                  error={errors.title}
+                  error={errors.materialsUsed}
                 />
                 <TextFieldGroup
                   placeholder="Location"
@@ -125,17 +125,18 @@ class AddCraft extends Component {
                     id="current"
                   />
                   <label htmlFor="current" className="form-check-label">
-                    Current Job
+                    Current Date
                   </label>
                 </div>
                 <TextAreaFieldGroup
-                  placeholder="Job Description"
+                  placeholder="Coplay Description"
                   name="description"
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Tell us about the the position"
+                  info="Tell us about more about your costume and cosplay"
                 />
+
                 <input
                   type="submit"
                   value="Submit"

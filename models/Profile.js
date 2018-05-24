@@ -37,13 +37,12 @@ const ProfileSchema = new Schema({
   },
   craft: [
     {
-      title: {
+      skills: {
         type: String,
         require: true
       },
-      company: {
-        type: String,
-        required: true
+      materialsUsed: {
+        type: String
       },
       location: {
         type: String
@@ -66,17 +65,15 @@ const ProfileSchema = new Schema({
   ],
   highlight: [
     {
-      school: {
+      caption: {
         type: String,
         require: true
       },
-      degree: {
-        type: String,
-        required: true
+      title: {
+        type: String
       },
-      fieldofstudy: {
-        type: String,
-        required: true
+      selectedImage: {
+        type: String
       },
       from: {
         type: Date,

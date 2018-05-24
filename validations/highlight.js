@@ -4,23 +4,25 @@ const isEmpty = require("./is-empty");
 module.exports = function validateHighlightInput(data) {
   let errors = {};
 
-  data.school = !isEmpty(data.school) ? data.school : "";
-  data.degree = !isEmpty(data.degree) ? data.degree : "";
-  data.fieldofstudy = !isEmpty(data.fieldofstudy) ? data.fieldofstudy : "";
+  data.caption = !isEmpty(data.caption) ? data.caption : "";
+  data.title = !isEmpty(data.title) ? data.title : "";
   data.from = !isEmpty(data.from) ? data.from : "";
 
-  if (Validator.isEmpty(data.school)) {
-    errors.school = " school field is required";
+  if (Validator.isEmpty(data.title)) {
+    errors.title = "title field is required";
   }
 
-  if (Validator.isEmpty(data.degree)) {
-    errors.degree = "degree field is required";
+  if (Validator.isEmpty(data.caption)) {
+    errors.caption = "field of caption is required";
   }
 
-  if (Validator.isEmpty(data.fieldofstudy)) {
-    errors.fieldofstudy = "field of study field is required";
+  if (Validator.isEmpty(data.title)) {
+    errors.title = "field of title is required";
   }
 
+  if (Validator.isEmpty(data.selectedImage)) {
+    errors.selectedImage = "selected Image is required";
+  }
   if (Validator.isEmpty(data.from)) {
     errors.from = "From date field is required";
   }

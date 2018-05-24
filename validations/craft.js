@@ -4,16 +4,16 @@ const isEmpty = require("./is-empty");
 module.exports = function validateCraftInput(data) {
   let errors = {};
 
-  data.title = !isEmpty(data.title) ? data.title : "";
-  data.company = !isEmpty(data.company) ? data.company : "";
+  data.skills = !isEmpty(data.skills) ? data.skills : "";
+  data.materialsUsed = !isEmpty(data.materialsUsed) ? data.materialsUsed : "";
   data.from = !isEmpty(data.from) ? data.from : "";
 
-  if (Validator.isEmpty(data.title)) {
-    errors.title = "Job title field is required";
+  if (Validator.isEmpty(data.skills)) {
+    errors.skills = "Skills field is required";
   }
 
-  if (Validator.isEmpty(data.company)) {
-    errors.company = "Company field is required";
+  if (Validator.isEmpty(data.materialsUsed)) {
+    errors.materialsUsed = "Materials field is required";
   }
 
   if (Validator.isEmpty(data.from)) {
