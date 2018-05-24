@@ -17,7 +17,7 @@ class ProfileCreds extends Component {
           )}
         </p>
         <p>
-          <strong>Position:</strong> {cra.title}
+          <strong>Skills:</strong> {cra.skills}
         </p>
         <p>
           {cra.location === "" ? null : (
@@ -48,10 +48,10 @@ class ProfileCreds extends Component {
           )}
         </p>
         <p>
-          <strong>Degree:</strong> {high.degree}
+          <strong>Caption:</strong> {high.caption}
         </p>
         <p>
-          <strong>Field Of Study:</strong> {high.fieldofstudy}
+          <strong>Images:</strong> {high.selectedImage}
         </p>
         <p>
           {high.description === "" ? null : (
