@@ -6,7 +6,8 @@ import {
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
-  SET_CURRENT_USER
+  SET_CURRENT_USER,
+  ADD_HIGHLIGHT
 } from "./types";
 
 // Get current profile
@@ -79,7 +80,13 @@ export const addHighlight = (highData, history) => dispatch => {
 
   axios
     .post("/api/profile/highlight", highData)
-    .then(response => history.push("/dashboard"))
+    .then(response => {
+      dispatch({
+        type: ADD_HIGHLIGHT,
+        payload: highData
+      });
+      history.push("/dashboard");
+    })
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
