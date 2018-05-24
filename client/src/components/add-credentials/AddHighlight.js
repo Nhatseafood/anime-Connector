@@ -12,15 +12,10 @@ class AddHighlight extends Component {
     super(props);
     this.state = {
       caption: "",
-      title: "",
-      location: "",
-      from: "",
-      to: "",
-      current: false,
       description: "",
       errors: {},
       disabled: false,
-      selectedImage: null
+      selectedImage: ""
     };
 
     this.onChange = this.onChange.bind(this);
@@ -28,37 +23,32 @@ class AddHighlight extends Component {
     this.onCheck = this.onCheck.bind(this);
   }
 
-  fileSelectedHandler = event => {
-    this.setState({
-      selectedFile: event.target.files[0]
-    });
-  };
-
-  fileUploadHandler = () => {
-    const fd = new FormData();
-    fd.append("image", this.state.selectedFild, this.state.selectedFile.name);
-  };
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
   }
 
+  // fileSelectedHandler = event => {
+  //   this.setState({
+  //     selectedFile: event.target.files[0]
+  //   });
+  // };
+
+  // fileUploadHandler = () => {
+  //   const fd = new FormData();
+  //   fd.append("image", this.state.selectedFild, this.state.selectedFile.name);
+  // };
+
   onSubmit(event) {
     event.preventDefault();
-
+    console.log(this.state, "<<<this is my state");
     const highData = {
       caption: this.state.caption,
-      title: this.state.title,
-      location: this.state.location,
-      from: this.state.from,
-      to: this.state.to,
-      current: this.state.current,
       description: this.state.description,
       selectedImage: this.state.selectedImage
     };
-
+    console.log(highData, "<<<<<<HIGHDATAA");
     this.props.addHighlight(highData, this.props.history);
   }
 
@@ -97,44 +87,6 @@ class AddHighlight extends Component {
                   onChange={this.onChange}
                   error={errors.caption}
                 />
-                <TextFieldGroup
-                  placeholder="* Title"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.onChange}
-                  error={errors.title}
-                />
-                <h6>From Date</h6>
-                <TextFieldGroup
-                  name="from"
-                  type="date"
-                  value={this.state.from}
-                  onChange={this.onChange}
-                  error={errors.from}
-                />
-                <h6>To Date</h6>
-                <TextFieldGroup
-                  name="to"
-                  type="date"
-                  value={this.state.to}
-                  onChange={this.onChange}
-                  error={errors.to}
-                  disabled={this.state.disabled ? "disabled" : ""}
-                />
-                <div className="form-check mb-4">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    name="current"
-                    value={this.state.current}
-                    checked={this.state.current}
-                    onChange={this.onCheck}
-                    id="current"
-                  />
-                  <label htmlFor="current" className="form-check-label">
-                    Current Date
-                  </label>
-                </div>
                 <TextAreaFieldGroup
                   placeholder="Cosplay Description"
                   name="description"
@@ -146,6 +98,7 @@ class AddHighlight extends Component {
                 <input
                   type="file"
                   name="selectedImage"
+                  value={this.state.selectedImage}
                   onChange={this.onChange}
                 />
                 <input

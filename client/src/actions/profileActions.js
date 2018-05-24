@@ -75,6 +75,8 @@ export const addCraft = (craData, history) => dispatch => {
 
 //Add Highlight
 export const addHighlight = (highData, history) => dispatch => {
+  console.log(highData, "<<<<<<highData inside actions");
+
   axios
     .post("/api/profile/highlight", highData)
     .then(response => history.push("/dashboard"))

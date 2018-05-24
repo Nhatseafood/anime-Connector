@@ -12,10 +12,6 @@ class AddCraft extends Component {
     this.state = {
       skills: "",
       materialsUsed: "",
-      location: "",
-      from: "",
-      to: "",
-      current: false,
       description: "",
       errors: {},
       disabled: false
@@ -38,10 +34,6 @@ class AddCraft extends Component {
     const craData = {
       skills: this.state.skills,
       materialsUsed: this.state.materialsUsed,
-      location: this.state.location,
-      from: this.state.from,
-      to: this.state.to,
-      current: this.state.current,
       description: this.state.description
     };
 
@@ -90,44 +82,7 @@ class AddCraft extends Component {
                   onChange={this.onChange}
                   error={errors.materialsUsed}
                 />
-                <TextFieldGroup
-                  placeholder="Location"
-                  name="location"
-                  value={this.state.location}
-                  onChange={this.onChange}
-                  error={errors.location}
-                />
-                <h6>From Date</h6>
-                <TextFieldGroup
-                  name="from"
-                  type="date"
-                  value={this.state.from}
-                  onChange={this.onChange}
-                  error={errors.from}
-                />
-                <h6>To Date</h6>
-                <TextFieldGroup
-                  name="to"
-                  type="date"
-                  value={this.state.to}
-                  onChange={this.onChange}
-                  error={errors.to}
-                  disabled={this.state.disabled ? "disabled" : ""}
-                />
-                <div className="form-check mb-4">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    name="current"
-                    value={this.state.current}
-                    checked={this.state.current}
-                    onChange={this.onCheck}
-                    id="current"
-                  />
-                  <label htmlFor="current" className="form-check-label">
-                    Current Date
-                  </label>
-                </div>
+
                 <TextAreaFieldGroup
                   placeholder="Coplay Description"
                   name="description"

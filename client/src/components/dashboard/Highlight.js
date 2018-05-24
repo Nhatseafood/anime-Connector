@@ -18,18 +18,16 @@ class Highlight extends Component {
   }
 
   render() {
+    console.log(this.props.highlight, "<<<<<< this is highlight");
+
     const highlights = this.props.highlight.map(high => (
-      <div key={high.id} className="col-sm-6 col-md-4">
+      <div key={high._id} className="col-sm-6 col-md-4">
         <div className="thumbnail">
           <a className="lightbox" href="../../img/Cosplay1.jpeg">
             <img src={cosplayImg} alt="cosplay 1" />
           </a>
           <div className="caption">
-            <h3>{high.school}</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <p>{high.caption}</p>
 
             <button
               onClick={this.onDeleteClick.bind(this, high._id)}

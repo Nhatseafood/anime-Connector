@@ -44,20 +44,6 @@ const ProfileSchema = new Schema({
       materialsUsed: {
         type: String
       },
-      location: {
-        type: String
-      },
-      from: {
-        type: Date,
-        required: true
-      },
-      to: {
-        type: Date
-      },
-      current: {
-        type: Boolean,
-        default: false
-      },
       decription: {
         type: String
       }
@@ -69,24 +55,7 @@ const ProfileSchema = new Schema({
         type: String,
         require: true
       },
-      title: {
-        type: String
-      },
       selectedImage: {
-        type: String
-      },
-      from: {
-        type: Date,
-        required: true
-      },
-      to: {
-        type: Date
-      },
-      current: {
-        type: Boolean,
-        default: false
-      },
-      decription: {
         type: String
       }
     }

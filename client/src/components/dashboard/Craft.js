@@ -12,19 +12,12 @@ class Craft extends Component {
   }
 
   render() {
+    console.log(this.props.craft, "<<<<<< THIS IS CRAFT");
     const craft = this.props.craft.map(craf => (
       <tr key={craf._id}>
         <td>{craf.skills}</td>
         <td>{craf.materialsUsed}</td>
 
-        <td>
-          <Moment format="YYYY/MM/DD">{craf.from}</Moment> -
-          {craf.to === null ? (
-            " Now"
-          ) : (
-            <Moment format="YYYY/MM/DD">{craf.to}</Moment>
-          )}
-        </td>
         <td>
           <button
             onClick={this.onDeleteClick.bind(this, craf._id)}
