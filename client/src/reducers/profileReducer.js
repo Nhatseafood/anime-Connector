@@ -26,10 +26,14 @@ export default function(state = initialState, action) {
         loading: false
       };
 
-    case ADD_HIGHLIGHT:
-      return {
-        ...state
-      };
+    // case ADD_HIGHLIGHT:
+    //   var newProfile = state.profile;
+    //   newProfile.highlight = action.payload;
+    //   return {
+    //     ...state,
+    //     profile: newProfile,
+    //     loading: false
+    //   };
     case GET_PROFILES:
       return {
         ...state,

@@ -17,6 +17,7 @@ class Craft extends Component {
       <tr key={craf._id}>
         <td>{craf.skills}</td>
         <td>{craf.materialsUsed}</td>
+        <td>{craf.description}</td>
 
         <td>
           <button
@@ -36,7 +37,7 @@ class Craft extends Component {
             <tr>
               <th>Skills</th>
               <th>Materials Used</th>
-              <th>Years</th>
+              <th>Delete</th>
               <th />
             </tr>
             {craft}

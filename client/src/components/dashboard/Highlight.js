@@ -28,7 +28,15 @@ class Highlight extends Component {
           </a>
           <div className="caption">
             <p>{high.caption}</p>
-
+            <p>{high.description}</p>
+            <p>{high.selectedImage}</p>
+            <h3>CAPTION </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              perferendis a necessitatibus tempora quibusdam dolorem tempore
+              voluptate labore, fuga perspiciatis dolore ea? Nulla, ipsam a
+              animi voluptatibus qui asperiores perferendis.
+            </p>
             <button
               onClick={this.onDeleteClick.bind(this, high._id)}
               className="btn btn-danger"

@@ -7,6 +7,10 @@ import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
 import Craft from "./Craft";
 import Highlight from "./Highlight";
+import { JumboTron, Grid, Row, Col, Image, Button } from "react-bootstrap";
+
+import "../dashboard/highlight.css";
+import "../dashboard/dashboard.css";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -29,6 +33,12 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
+            <div class="jumbotron">
+              <h1>
+                <b>Hello, welcome to the world for cosplayers!</b>
+              </h1>
+              <p />
+            </div>
             <p className="lead text-muted">
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
@@ -48,6 +58,16 @@ class Dashboard extends Component {
         // User is logged in but has no profile
         dashboardContent = (
           <div>
+            <div class="jumbotron">
+              <h1>Hello, welcome to the world of gaming!</h1>
+              <p>...</p>
+              <p>
+                <a class="btn btn-primary btn-lg" href="/about" role="button">
+                  Learn more
+                </a>
+              </p>
+            </div>
+
             <p className="lead text-muted"> Welcome {user.name}</p>
             <p>You have not yet a profile, please add some info</p>
             <Link to="/create-profile" className="btn btn-lg btn-info">

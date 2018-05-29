@@ -1,0 +1,20 @@
+.jumbotron {
+  margin-bottom: 4em;
+}
+
+.jumbotron {
+  background-image: url("http://smiletic.com/wp-content/uploads/2010/09/chuva.gif");
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-size: 500px;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
